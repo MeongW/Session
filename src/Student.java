@@ -4,4 +4,7 @@ public class Student {
     public void printIntro() {
 
     }
+    public void say() {
+        System.out.println("안녕");
+    }
 }
