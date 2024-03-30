@@ -2,41 +2,28 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-//        char[] alphabet = {'a', 'b', 'd'};
-//        alphabet[2] = 'c';
-//        System.out.print(alphabet);
+        ArrayList<Student> students = new ArrayList<Student>();
+        Student maxBmiStudent;
 
-//        ArrayList<Integer> list = new ArrayList<Integer>();
-//
-//        for (int i = 1; i <= 100; i++)
-//            list.add(i);
-//        for (int i = list.size()-(!(list.size()%2!=0)?1:0)-1 ; i >= 0; i-=2)
-//            list.remove(i);
-//        for (int i = 0; i < list.size(); i++)
-//            System.out.println(list.get(i));
+        students.add(new Student("홍길동", 175, 75));
+        maxBmiStudent = students.getFirst();
+        students.add(new Student("이서경", 180, 78));
+        if (students.getLast().getBMI() > maxBmiStudent.getBMI()) maxBmiStudent = students.getLast();
+        students.add(new Student("이영희", 155, 49));
+        if (students.getLast().getBMI() > maxBmiStudent.getBMI()) maxBmiStudent = students.getLast();
+        students.add(new Student("김멋사", 182, 82));
+        if (students.getLast().getBMI() > maxBmiStudent.getBMI()) maxBmiStudent = students.getLast();
 
-//        printNum(plus(1, 2));
+        for (Student student: students) {
+            if (maxBmiStudent.equals(student)) {
+                students.remove(student);
+                break;
+            }
+        }
 
-//        FishBread fish1 = new FishBread();
-//        fish1.setSize(10);
-//        fish1.setTaste("슈크림");
-//
-//        FishBread fish2 = new FishBread();
-//        fish2.setSize(15);
-//        fish2.setTaste("피자");
-//
-//        fish1.fishPrint();
-//        fish2.fishPrint();
-
-        Circle circle = new Circle();
-        circle.setRadius(8);
-        System.out.println(circle.size());
+        for (Student student: students) {
+            student.printIntro();
+            student.say();
+        }
     }
-//    static int plus(int a, int b) {
-//        int result = a + b;
-//        return result;
-//    }
-//    static void printNum(int n) {
-//        System.out.println(n);
-//    }
 }
